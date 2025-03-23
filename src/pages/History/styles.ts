@@ -61,6 +61,13 @@ export const HistoryList = styled.div`
     }   
   }
 `;
+
+export const HeaderHistory = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+
 // Utilizado o "as const" para sinalizar que o valor é exatamente aquele texto, e não uma string qualquer
 
 const STATUS_COLORS = {

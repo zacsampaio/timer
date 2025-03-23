@@ -3,6 +3,7 @@ import { CyclesContext } from "./CyclesContext"; // Importa o contexto separado
 import { Cycle, cyclesReducer } from "../reducers/cycles/reducer";
 import {
   addNewCycleAction,
+  clearHistoryAction,
   interruptCurrentCycleAction,
   markCurrentCycleAsFinishedAction,
 } from "../reducers/cycles/actions";
@@ -69,6 +70,16 @@ export function CyclesContextProvider({ children }: CyclesContextProviderProps) 
     dispatch(interruptCurrentCycleAction());
   }
 
+  function clearHistory() {
+    dispatch(clearHistoryAction());
+  }
+
+  useEffect(() => {
+    if (cycles.length === 0) {
+      localStorage.removeItem("@timer: cycles-state-1.0.0");
+    }
+  }, [cycles]);
+
   return (
     <CyclesContext.Provider
       value={{
@@ -80,6 +91,7 @@ export function CyclesContextProvider({ children }: CyclesContextProviderProps) 
         setSecondsPassed,
         createNewCycle,
         interruptCurrentCycle,
+        clearHistory,
       }}
     >
       {children}

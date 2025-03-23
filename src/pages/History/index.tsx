@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR }  from 'date-fns/locale/pt-BR'
-import { HistoryContainer, HistoryList, Status } from "./styles";
+import { HeaderHistory, HistoryContainer, HistoryList, Status } from "./styles";
 import { CyclesContext } from "../../contexts/CyclesContext";
+import { DeleteHistory } from "./components";
 
 
 
@@ -11,7 +12,10 @@ export function History() {
 
   return (
     <HistoryContainer>
-      <h1>Meu histórico</h1>
+      <HeaderHistory>
+        <h1>Meu histórico</h1>
+        <DeleteHistory />
+      </HeaderHistory>
       <HistoryList>
         <table>
           <thead>

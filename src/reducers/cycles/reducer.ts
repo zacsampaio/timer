@@ -20,37 +20,43 @@ export function cyclesReducer(state: CyclesState, action: CyclesAction) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_CYCLE:
       return produce(state, (draft) => {
-        draft.cycles.push(action.payload.newCycle)
-        draft.activeCycleId = action.payload.newCycle.id
-      })
-    case ActionTypes.INTERRUPT_CURRENT_CYCLE:{
+        draft.cycles.push(action.payload.newCycle);
+        draft.activeCycleId = action.payload.newCycle.id;
+      });
+    case ActionTypes.INTERRUPT_CURRENT_CYCLE: {
       const currentCycleIndex = state.cycles.findIndex((cycle) => {
-        return cycle.id === state.activeCycleId
-      })
+        return cycle.id === state.activeCycleId;
+      });
 
-      if (currentCycleIndex < 0){
-        return state 
+      if (currentCycleIndex < 0) {
+        return state;
       }
-      
+
       return produce(state, (draft) => {
-        draft.activeCycleId = null
-        draft.cycles[currentCycleIndex].interruptedDate = new Date()
-      })
-    };
-    case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED:{
+        draft.activeCycleId = null;
+        draft.cycles[currentCycleIndex].interruptedDate = new Date();
+      });
+    }
+    case ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED: {
       const currentCycleIndex = state.cycles.findIndex((cycle) => {
-        return cycle.id === state.activeCycleId
-      })
+        return cycle.id === state.activeCycleId;
+      });
 
-      if (currentCycleIndex < 0){
-        return state 
+      if (currentCycleIndex < 0) {
+        return state;
       }
-      
+
       return produce(state, (draft) => {
-        draft.activeCycleId = null
-        draft.cycles[currentCycleIndex].finishedDate = new Date()
-      })
-    };
+        draft.activeCycleId = null;
+        draft.cycles[currentCycleIndex].finishedDate = new Date();
+      });
+    }
+    case ActionTypes.CLEAR_HISTORY:
+      return produce(state, (draft) => {
+        draft.cycles = draft.cycles.filter(
+          (cycle) => cycle.id === draft.activeCycleId
+        );
+      });
     default:
       return state;
   }

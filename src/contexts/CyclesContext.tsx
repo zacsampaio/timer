@@ -15,6 +15,7 @@ interface CycleContextType {
   setSecondsPassed: (seconds: number) => void;
   createNewCycle: (data: CreateCycleData) => void;
   interruptCurrentCycle: () => void;
+  clearHistory: () => void;
 }
 
 export const CyclesContext = createContext({} as CycleContextType);
