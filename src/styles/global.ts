@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyled = createGlobalStyle`
   *{
@@ -9,12 +9,12 @@ export const GlobalStyled = createGlobalStyle`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 3px ${props => props.theme['green-500']};
+    box-shadow: 0 0 0 3px ${(props) => props.theme["green-500"]};
   }
 
   body{
-    background: ${props => props.theme['gray-900']};
-    color: ${props => props.theme['gray-300']};
+    background: ${(props) => props.theme["gray-900"]};
+    color: ${(props) => props.theme["gray-300"]};
     -webkit-font-smoothing: antialiased;
   }
 
@@ -24,4 +24,33 @@ export const GlobalStyled = createGlobalStyle`
     font-size: 1rem;
   }
 
-`
+
+  @media (max-width: 768px) {
+    html {
+        font-size: 70%;
+        max-width: 100dvw;
+    }
+  }
+
+    @media (max-width: 555px) {
+      html {
+          font-size: 60%;
+          max-width: 100dvw;
+      }
+  }
+
+  @media (max-width: 471px) {
+      html {
+          font-size: 60%;
+          max-width: 100dvw;
+      }
+  }
+
+  @media (max-width: 375px) {
+      html {
+          font-size: 50%;
+          max-width: 100dvw;
+      }   
+  }
+
+`;
