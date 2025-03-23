@@ -29,6 +29,7 @@ export const GlobalStyled = createGlobalStyle`
     html {
         font-size: 70%;
         max-width: 100dvw;
+        max-height: 100dvh;
     }
   }
 
@@ -36,6 +37,7 @@ export const GlobalStyled = createGlobalStyle`
       html {
           font-size: 60%;
           max-width: 100dvw;
+          max-height: 100dvh;
       }
   }
 
@@ -43,6 +45,7 @@ export const GlobalStyled = createGlobalStyle`
       html {
           font-size: 60%;
           max-width: 100dvw;
+          max-height: 100dvh;
       }
   }
 
@@ -50,6 +53,7 @@ export const GlobalStyled = createGlobalStyle`
       html {
           font-size: 50%;
           max-width: 100dvw;
+          max-height: 100dvh;
       }   
   }
 
